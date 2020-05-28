@@ -21,9 +21,9 @@ function App() {
       <div className="Tracks">
         <div className="Folder">
           <ul>
-            <li> All </li>
-            <li> Other </li>
-            <li> Other 2 </li>
+            <li> <a href="#">All </a> </li>
+            <li> <a href="#"> Other </a> </li>
+            <li> <a href="#"> Other 2 </a> </li>
           </ul>
         </div>
         <div className="TrackHolder">

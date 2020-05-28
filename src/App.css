@@ -86,6 +86,14 @@ table {
   background-color: rgb(125, 125, 125);
   margin: 1vw;
   min-width: 10vw;
+  text-align: center;
+}
+.Folder li {
+  margin: 5px;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  padding: 5px;
 }
 .TrackHolder {
   background-color: rgb(125, 125, 125);
