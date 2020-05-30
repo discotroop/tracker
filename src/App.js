@@ -1,10 +1,9 @@
 import React from 'react';
 import './App.css';
 import tracks from './logic/tracker.js';
-import Modal from './NewTrackModal';
+import NewModal from './modal.js';
 
 const TrackerLogic = tracks();
-// const NewTrackModal = Modal();
 
 function App() {
   let tests = TrackerLogic.tracks;
