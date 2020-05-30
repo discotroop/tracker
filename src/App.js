@@ -1,14 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import tracks from './logic/tracker.js';
+import Modal from './NewTrackModal';
 
 const TrackerLogic = tracks();
+// const NewTrackModal = Modal();
 
 function App() {
   let tests = TrackerLogic.tracks;
 
-
+    // rudimentary rendering of tracks from tests
   const RenderedTracks = ({tracks}) => (
   <div>
     {tests.map(track => (
