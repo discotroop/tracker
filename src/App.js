@@ -5,24 +5,18 @@ import tracks from './logic/tracker.js';
 
 const TrackerLogic = tracks();
 
-function testingFunction() {
-  const testing = "testing";
-  return (
-    <div> {testing} </div>
-  );
-}
-
 function App() {
   let tests = TrackerLogic.tracks;
 
-  function populateTracks() {
-    const tracks = tests;
-    const renderedTracks = tracks.map((track) => <li key={track.text}>{track.text}</li>);
-    
-      return (
-        <div> {renderedTracks} </div>
-      );
-  }
+
+  const RenderedTracks = ({tracks}) => (
+  <div>
+    {tests.map(track => (
+      <div className="track" key={track.text}>{track.text}</div>
+    ))}
+  </div>
+  );
+
   return (
     <div className="App">
       <div className="Header">
@@ -50,9 +44,7 @@ function App() {
             </div>
           </div>
           <div className="CurrentTracks">
-            here there be tracks
-            <testingFunction></testingFunction>
-            <populateTracks></populateTracks>
+            <RenderedTracks tracks={tests}></RenderedTracks>
           </div>
         </div>
       </div>
