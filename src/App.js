@@ -17,6 +17,11 @@ function App() {
   </div>
   );
 
+  const toggleNew = () => {
+    // this may not be the way
+    console.log("hi");
+  }
+
   return (
     <div className="App">
       <div className="Header">
@@ -40,7 +45,8 @@ function App() {
           <div className="TrackHeader">
             <div className="TrackTitle"> Tracks </div>
             <div className="NewTrack"> 
-              <button> New Track </button>
+              <button onClick={toggleNew}> New Track </button>
+              <input className="invisible"></input>
             </div>
           </div>
           <div className="CurrentTracks">
