@@ -7,7 +7,6 @@ test('TrackerLogic links up', () => {
   expect(testTrack).toBe(1);
 });
 
-
 test('Build track pushes new track to tracks', () => {
   const logic = TrackerLogic;
   const sampleText = 'new track';
