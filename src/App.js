@@ -34,18 +34,26 @@ class NewTrackForm extends React.Component {
   }
 }
 
-function App() {
-  let tests = TrackerLogic.tracks;
-
-    // rudimentary rendering of tracks from tests
-  const RenderedTracks = ({tracks}) => (
-  <div>
-    {tests.map(track => (
+function RenderedTracks(props) {
+  return (
+    <div>
+    {props.tracks.map(track => (
       <div className="track" key={track.text}>{track.text}</div>
     ))}
   </div>
-  );
+  )
+}
 
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      tests: TrackerLogic.tracks,
+    }
+  }
+    // rudimentary rendering of tracks from tests
+
+  render() {
   return (
     <div className="App">
       <div className="Header">
@@ -53,9 +61,9 @@ function App() {
         <div className="User"> <a href="#"> User </a> </div>
       </div>
       <div className="ResultBox">
-        <div> {tests[0].text}</div>
-        <div> {tests[1].text}</div> 
-        <div> {tests[2].text}</div>   
+        <div> {this.state.tests[0].text}</div>
+        <div> {this.state.tests[1].text}</div> 
+        <div> {this.state.tests[2].text}</div>   
       </div>
       <div className="Tracks">
         <div className="Folder">
@@ -73,12 +81,13 @@ function App() {
             </div>
           </div>
           <div className="CurrentTracks">
-            <RenderedTracks tracks={tests}></RenderedTracks>
+            <RenderedTracks tracks={this.state.tests} />
           </div>
         </div>
       </div>
     </div>
   );
+  }
 }
 
 export default App;
