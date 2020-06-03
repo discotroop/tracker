@@ -45,8 +45,8 @@ function App() {
           <div className="TrackHeader">
             <div className="TrackTitle"> Tracks </div>
             <div className="NewTrack"> 
+              <input className="NewTrackText"></input>
               <button onClick={toggleNew}> New Track </button>
-              <input className="invisible"></input>
             </div>
           </div>
           <div className="CurrentTracks">
