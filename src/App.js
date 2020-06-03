@@ -18,7 +18,7 @@ class NewTrackForm extends React.Component {
   }
   handleSubmit(event) {
     alert('You added a track: ' + this.state.value);
-    TrackerLogic.buildTrack(this.state.value);
+    this.props.build(this.state.value);
     console.log(TrackerLogic.tracks);
     event.preventDefault();
   }
@@ -48,7 +48,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tests: TrackerLogic.tracks,
+      logic: TrackerLogic,
     }
   }
     // rudimentary rendering of tracks from tests
@@ -61,9 +61,9 @@ class App extends React.Component {
         <div className="User"> <a href="#"> User </a> </div>
       </div>
       <div className="ResultBox">
-        <div> {this.state.tests[0].text}</div>
-        <div> {this.state.tests[1].text}</div> 
-        <div> {this.state.tests[2].text}</div>   
+        <div> {this.state.logic.tracks[0].text}</div>
+        <div> {this.state.logic.tracks[1].text}</div> 
+        <div> {this.state.logic.tracks[2].text}</div>   
       </div>
       <div className="Tracks">
         <div className="Folder">
@@ -77,11 +77,11 @@ class App extends React.Component {
           <div className="TrackHeader">
             <div className="TrackTitle"> Tracks </div>
             <div className="NewTrack"> 
-              <NewTrackForm />
+              <NewTrackForm build={this.state.logic.buildTrack}/>
             </div>
           </div>
           <div className="CurrentTracks">
-            <RenderedTracks tracks={this.state.tests} />
+            <RenderedTracks tracks={this.state.logic.tracks} />
           </div>
         </div>
       </div>
