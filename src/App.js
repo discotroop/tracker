@@ -1,9 +1,38 @@
 import React from 'react';
 import './App.css';
 import tracks from './logic/tracker.js';
-import NewModal from './modal.js';
 
 const TrackerLogic = tracks();
+
+// rework to allow react state to be the "single source of truth"
+// make react forms "controlled components"
+class NewTrackForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {value: ''};
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleChange(event) {    
+    this.setState({value: event.target.value});  
+  }
+  handleSubmit(event) {
+    alert('You added a track: ' + this.state.value);
+    TrackerLogic.buildTrack(this.state.value);
+    console.log(TrackerLogic.tracks);
+    event.preventDefault();
+  }
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          New Track:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />        </label>
+        <input type="submit" value="Add Track" />
+      </form>
+    );
+  }
+}
 
 function App() {
   let tests = TrackerLogic.tracks;
@@ -16,11 +45,6 @@ function App() {
     ))}
   </div>
   );
-
-  const toggleNew = () => {
-    // this may not be the way
-    console.log("hi");
-  }
 
   return (
     <div className="App">
@@ -45,8 +69,7 @@ function App() {
           <div className="TrackHeader">
             <div className="TrackTitle"> Tracks </div>
             <div className="NewTrack"> 
-              <input className="NewTrackText"></input>
-              <button onClick={toggleNew}> New Track </button>
+              <NewTrackForm />
             </div>
           </div>
           <div className="CurrentTracks">
