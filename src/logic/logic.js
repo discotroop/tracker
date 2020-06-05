@@ -66,7 +66,7 @@ function Logic() {
                 {  
                     date: formattedDay,
                     dateString: setToString,
-                    tracks: 0,
+                    count: 0,
                 })
             today.setDate(today.getDate() - 1);
         }
@@ -79,7 +79,7 @@ function Logic() {
         let trackDate = tracks[i].dateString;
         for (let j = 0; j < Calendar.length; j++) {
             if (trackDate === Calendar[j].dateString) {
-                Calendar[j].tracks++;
+                Calendar[j].count++;
             }
         }
         }

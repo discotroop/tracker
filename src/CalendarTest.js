@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import Logic from './logic/logic.js';
 
 const logic = Logic();
+logic.buildTrack("testing calendar");
+logic.buildTrack("testing calendar");
+logic.buildTrack("testing calendar");
+
+logic.populateCalendar();
+
+console.log(logic.calendar)
 
 function RenderedDates(props) {
     return (
