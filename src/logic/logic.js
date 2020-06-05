@@ -35,25 +35,37 @@ function Logic() {
             }
         )
     }
+    function setDateToString(formattedDate) {
+        let yearString = formattedDate.year.toString();
+        let monthString = formattedDate.month.toString();
+        let dayString = formattedDate.day.toString();
+        return yearString + monthString + dayString;
+    }
     function newTrack(trackText) {
+        let thisDate = formatDate(new Date());
+        let thisDateString = setDateToString(thisDate);
       return {
         text: trackText,
         lists: [],
         complete: false,
-        date: formatDate(new Date())
+        date: thisDate,
+        dateString: thisDateString,
       }
     }
     function buildTrack(trackText) {
       tracks.push(newTrack(trackText))
     }
     function buildCalendar() {
-        let today = new Date();
+        let today = new Date(); 
         const calendar = [];
         for (let i = 365; i > 0; i--) {
+            let formattedDay = formatDate(today);
+            let setToString = setDateToString(formattedDay);
             calendar.push(
-                { 
-                    day: "day", 
-                    date: formatDate(today)
+                {  
+                    date: formattedDay,
+                    dateString: setToString,
+                    tracks: 0,
                 })
             today.setDate(today.getDate() - 1);
         }
