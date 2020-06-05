@@ -18,7 +18,8 @@ function Logic() {
         date: {
             year: 2020,
             month: 5,
-            day: 4
+            day: 4,
+            dateString: 202054
         }
       },
     ];
@@ -69,6 +70,15 @@ function Logic() {
                 })
             today.setDate(today.getDate() - 1);
         }
+        // for (let i = 0; i < tracks.length; i++) {
+        //     let trackDate = tracks[i].dateString;
+        //     for (let j = 0; j < calendar.length; j++) {
+        //         if (trackDate === calendar[j].dateString) {
+        //             console.log(trackDate)
+        //             calendar[j].tracks++;
+        //         }
+        //     }
+        // }
     return calendar;
     }
   return {

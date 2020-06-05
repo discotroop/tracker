@@ -38,5 +38,6 @@ test('newTrack returns object with present year', () => {
 // render 365 squares counting backward from there.
 test('testing calendar', () => {
     const logic = TrackerLogic;
-    console.log(logic.calendar)
+    logic.calendar[1].tracks++;
+    console.log(logic.calendar[1])
 })
