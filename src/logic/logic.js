@@ -70,21 +70,26 @@ function Logic() {
                 })
             today.setDate(today.getDate() - 1);
         }
-        // for (let i = 0; i < tracks.length; i++) {
-        //     let trackDate = tracks[i].dateString;
-        //     for (let j = 0; j < calendar.length; j++) {
-        //         if (trackDate === calendar[j].dateString) {
-        //             console.log(trackDate)
-        //             calendar[j].tracks++;
-        //         }
-        //     }
-        // }
     return calendar;
     }
+    const Calendar = buildCalendar();
+
+    function populateCalendar() {
+        for (let i = 0; i < tracks.length; i++) {
+        let trackDate = tracks[i].dateString;
+        for (let j = 0; j < Calendar.length; j++) {
+            if (trackDate === Calendar[j].dateString) {
+                Calendar[j].tracks++;
+            }
+        }
+        }
+    }
+    populateCalendar();
   return {
       tracks: tracks,
       buildTrack: buildTrack,
-      calendar: buildCalendar(),
+      calendar: Calendar,
+      populateCalendar: populateCalendar,
   }
 }
 

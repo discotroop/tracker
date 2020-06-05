@@ -1,6 +1,6 @@
 import logic from './logic.js';
 
-const TrackerLogic = logic();
+let TrackerLogic = logic();
 
 // Tracks array methods
 test('Build track pushes new track to tracks', () => {
@@ -20,24 +20,22 @@ test('newTrack returns object with present year', () => {
 })
 test('newTrack returns object with present month', () => {
     const logic = TrackerLogic;
-    logic.buildTrack("testing year");
+    logic.buildTrack("testing month");
     let today = new Date();
     let month = today.getMonth();
     expect(logic.tracks[1].date.month).toBe(month);
 })
-test('newTrack returns object with present year', () => {
+test('newTrack returns object with present day', () => {
     const logic = TrackerLogic;
-    logic.buildTrack("testing year");
+    logic.buildTrack("testing day");
     let today = new Date();
     let day = today.getDate();
     expect(logic.tracks[1].date.day).toBe(day);
 })
-
-// Calendar Creation
-// get present day
-// render 365 squares counting backward from there.
-test('testing calendar', () => {
+test('pushing new track bumbs calendar count', () => {
     const logic = TrackerLogic;
-    logic.calendar[1].tracks++;
-    console.log(logic.calendar[1])
+    logic.tracks.length = 0;
+    logic.buildTrack("testing calendar");
+    logic.populateCalendar();
+    expect(logic.calendar[0].tracks).toBe(1);
 })
