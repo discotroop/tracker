@@ -8,7 +8,6 @@ logic.buildTrack("testing calendar");
 
 logic.populateCalendar();
 
-console.log(logic.calendar)
 
 function RenderedDates(props) {
     return (
