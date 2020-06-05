@@ -59,7 +59,7 @@ function Logic() {
     function buildCalendar() {
         let today = new Date(); 
         const calendar = [];
-        for (let i = 365; i > 0; i--) {
+        for (let i = 364; i > 0; i--) {
             let formattedDay = formatDate(today);
             let setToString = setDateToString(formattedDay);
             calendar.push(

@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import tracks from './logic/tracker.js';
+import Calendar from './CalendarTest.js'
 
 const TrackerLogic = tracks();
 
@@ -63,7 +64,8 @@ class App extends React.Component {
       <div className="ResultBox">
         <div> {this.state.logic.tracks[0].text}</div>
         <div> {this.state.logic.tracks[1].text}</div> 
-        <div> {this.state.logic.tracks[2].text}</div>   
+        <div> {this.state.logic.tracks[2].text}</div> 
+        <Calendar></Calendar>  
       </div>
       <div className="Tracks">
         <div className="Folder">
