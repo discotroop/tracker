@@ -32,3 +32,11 @@ test('newTrack returns object with present year', () => {
     let day = today.getDate();
     expect(logic.tracks[1].date.day).toBe(day);
 })
+
+// Calendar Creation
+// get present day
+// render 365 squares counting backward from there.
+test('testing calendar', () => {
+    const logic = TrackerLogic;
+    console.log(logic.calendar)
+})

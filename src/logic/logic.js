@@ -7,6 +7,7 @@
     // sort by date
     // sort by lists
 // needs to track time in tracks *
+// need to build calendar
 
 function Logic() {
     const tracks = [
@@ -21,30 +22,42 @@ function Logic() {
         }
       },
     ];
-    function newTrack(trackText) {
+    function getToday() {
         let newDate = new Date();
         let newYear = newDate.getFullYear();
         let newMonth = newDate.getMonth();
         let newDay = newDate.getDate();
+        return (
+            {
+                year: newYear,
+                month: newMonth,
+                day: newDay
+            }
+        )
+    }
+    function newTrack(trackText) {
       return {
         text: trackText,
         lists: [],
         complete: false,
-        date: {
-            year: newYear,
-            month: newMonth,
-            day: newDay
-        }
+        date: getToday()
       }
-
     }
     function buildTrack(trackText) {
       tracks.push(newTrack(trackText))
     }
+    function buildCalendar() {
+        const calendar = [];
+        const today = getToday();
+        for (let i = 365; i > 0; i--) {
+            calendar.push("day")
+        }
+        return calendar;
+    }
   return {
       tracks: tracks,
-      newTrack: newTrack,
       buildTrack: buildTrack,
+      calendar: buildCalendar(),
   }
 }
 
