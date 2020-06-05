@@ -50,10 +50,14 @@ function Logic() {
         let today = new Date();
         const calendar = [];
         for (let i = 365; i > 0; i--) {
-            calendar.push("day", formatDate(today))
+            calendar.push(
+                { 
+                    day: "day", 
+                    date: formatDate(today)
+                })
             today.setDate(today.getDate() - 1);
         }
-        return calendar;
+    return calendar;
     }
   return {
       tracks: tracks,
