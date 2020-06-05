@@ -22,8 +22,8 @@ function Logic() {
         }
       },
     ];
-    function getToday() {
-        let newDate = new Date();
+    function formatDate(date) {
+        let newDate = date;
         let newYear = newDate.getFullYear();
         let newMonth = newDate.getMonth();
         let newDay = newDate.getDate();
@@ -40,17 +40,18 @@ function Logic() {
         text: trackText,
         lists: [],
         complete: false,
-        date: getToday()
+        date: formatDate(new Date())
       }
     }
     function buildTrack(trackText) {
       tracks.push(newTrack(trackText))
     }
     function buildCalendar() {
+        let today = new Date();
         const calendar = [];
-        const today = getToday();
         for (let i = 365; i > 0; i--) {
-            calendar.push("day")
+            calendar.push("day", formatDate(today))
+            today.setDate(today.getDate() - 1);
         }
         return calendar;
     }
