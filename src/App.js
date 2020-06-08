@@ -20,7 +20,6 @@ class NewTrackForm extends React.Component {
   handleSubmit(event) {
     alert('You added a track: ' + this.state.value);
     this.props.build(this.state.value);
-    console.log(TrackerLogic.tracks);
     event.preventDefault();
   }
   render() {
