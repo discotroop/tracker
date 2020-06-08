@@ -66,11 +66,12 @@ table {
 }
 
 .ResultBox {
-  width: 70vw;
+  width: 572px;
   margin: 3vw;
   margin-left: 5vw;
   background-color: rgb(125, 125, 125);
-  min-height: 100px;
+  padding: 2px;
+  min-height: 76px;
 }
 
 .Tracks {
@@ -124,14 +125,15 @@ table {
   width: 100%;
   display: grid;
   text-align: center;
-  grid-template-rows: repeat(7, 30px);
-  grid-template-columns: repeat(52, 30px);
+  grid-template-rows: repeat(7, 10px);
+  grid-template-columns: repeat(52, 10px);
   grid-row-gap: 1px;
   grid-column-gap: 1px;
 }
 
 .date {
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
   background-color: lightgreen;
+  font-size: 6px;
 }

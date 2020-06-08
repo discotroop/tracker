@@ -62,9 +62,6 @@ class App extends React.Component {
         <div className="User"> <a href="#"> User </a> </div>
       </div>
       <div className="ResultBox">
-        <div> {this.state.logic.tracks[0].text}</div>
-        <div> {this.state.logic.tracks[1].text}</div> 
-        <div> {this.state.logic.tracks[2].text}</div> 
         <Calendar></Calendar>  
       </div>
       <div className="Tracks">
